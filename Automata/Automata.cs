@@ -8,13 +8,14 @@ namespace Automata
     {
         #region Variables
 
-        private readonly List<string> Estados = new List<string>();
-        private readonly List<char> Lenguaje = new List<char>();
-        private readonly List<Transicion> Transicion = new List<Transicion>();
-        private string EstadoInicial;
-        private readonly List<string> EstadoFinal = new List<string>();
+        public readonly List<string> Estados = new List<string>();
+        public readonly List<char> Lenguaje = new List<char>();
+        public readonly List<Transicion> Transicion = new List<Transicion>();
+        public List<string> EstadoInicial = new List<string>();
+        public readonly List<string> EstadoFinal = new List<string>();
         public static bool resultado;
         public static string resultadoTexto;
+        public static string resMinimizacion;
 
         #endregion Variables
 
@@ -29,7 +30,7 @@ namespace Automata
         /// <param name="estadoInicial">Estado inicial del autómata.</param>
         /// <param name="estadoFinal">Listado de los estados finales del autómata.</param>
         public Automata(IEnumerable<string> estados, IEnumerable<char> lenguaje,
-           IEnumerable<Transicion> transiciones, string estadoInicial, IEnumerable<string> estadoFinal)
+           IEnumerable<Transicion> transiciones, IEnumerable<string> estadoInicial, IEnumerable<string> estadoFinal)
         {
             Estados = estados.ToList();
             Lenguaje = lenguaje.ToList();
@@ -70,11 +71,15 @@ namespace Automata
         /// Método que crea un estado inicial.
         /// </summary>
         /// <param name="q0">Estado inicial.</param>
-        private void CrearEstadoInicial(string q0)
+        private void CrearEstadoInicial(IEnumerable<string> q0)
         {
-            if (q0 != null)
+            //if (q0 != null)
+            //{
+            //    EstadoInicial = q0;
+            //}
+            foreach (var estadoInicial in q0.Where(q => q != null && Estados.Contains(q)))
             {
-                EstadoInicial = q0;
+                EstadoInicial.Add(estadoInicial);
             }
         }
 
@@ -96,7 +101,7 @@ namespace Automata
         /// <param name="entrada">Cadena de entrada a evaluar.</param>
         public void Simular(string entrada)
         {
-            if (Simular(EstadoInicial, entrada, new StringBuilder()))
+            if (Simular(EstadoInicial[0], entrada, new StringBuilder()))
             {
                 return;
             }

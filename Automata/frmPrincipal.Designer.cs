@@ -41,6 +41,7 @@
             this.sbPrincipal = new System.Windows.Forms.StatusStrip();
             this.slblTitulo = new System.Windows.Forms.ToolStripStatusLabel();
             this.btnLimpiar = new System.Windows.Forms.Button();
+            this.btnMinimizar = new System.Windows.Forms.Button();
             this.sbPrincipal.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -79,7 +80,7 @@
             this.btnSimular.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSimular.Location = new System.Drawing.Point(35, 62);
             this.btnSimular.Name = "btnSimular";
-            this.btnSimular.Size = new System.Drawing.Size(83, 21);
+            this.btnSimular.Size = new System.Drawing.Size(83, 42);
             this.btnSimular.TabIndex = 1;
             this.btnSimular.Text = "Simular Autómata";
             this.btnSimular.UseVisualStyleBackColor = true;
@@ -87,12 +88,13 @@
             // 
             // txtContenido
             // 
+            this.txtContenido.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.txtContenido.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContenido.Location = new System.Drawing.Point(147, 83);
+            this.txtContenido.Location = new System.Drawing.Point(161, 83);
             this.txtContenido.Multiline = true;
             this.txtContenido.Name = "txtContenido";
             this.txtContenido.ReadOnly = true;
-            this.txtContenido.Size = new System.Drawing.Size(272, 150);
+            this.txtContenido.Size = new System.Drawing.Size(403, 150);
             this.txtContenido.TabIndex = 4;
             // 
             // lblContenidoArchivo
@@ -129,12 +131,14 @@
             // 
             // txtResultado
             // 
+            this.txtResultado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.txtResultado.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtResultado.Location = new System.Drawing.Point(147, 248);
+            this.txtResultado.Location = new System.Drawing.Point(161, 248);
             this.txtResultado.Multiline = true;
             this.txtResultado.Name = "txtResultado";
             this.txtResultado.ReadOnly = true;
-            this.txtResultado.Size = new System.Drawing.Size(272, 186);
+            this.txtResultado.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtResultado.Size = new System.Drawing.Size(403, 186);
             this.txtResultado.TabIndex = 7;
             this.txtResultado.Visible = false;
             // 
@@ -145,21 +149,20 @@
             this.slblTitulo});
             this.sbPrincipal.Location = new System.Drawing.Point(0, 454);
             this.sbPrincipal.Name = "sbPrincipal";
-            this.sbPrincipal.Size = new System.Drawing.Size(541, 22);
+            this.sbPrincipal.Size = new System.Drawing.Size(576, 22);
             this.sbPrincipal.TabIndex = 8;
             // 
             // slblTitulo
             // 
             this.slblTitulo.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.slblTitulo.Name = "slblTitulo";
-            this.slblTitulo.Size = new System.Drawing.Size(515, 17);
-            this.slblTitulo.Text = "Realizado por: Rafael Arreola Villaseñor para la materia de Teoría de la Computac" +
-    "ión.";
+            this.slblTitulo.Size = new System.Drawing.Size(340, 17);
+            this.slblTitulo.Text = "Realizado para la materia de Teoría de la Computación.";
             // 
             // btnLimpiar
             // 
             this.btnLimpiar.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLimpiar.Location = new System.Drawing.Point(446, 22);
+            this.btnLimpiar.Location = new System.Drawing.Point(481, 22);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(83, 21);
             this.btnLimpiar.TabIndex = 9;
@@ -167,11 +170,24 @@
             this.btnLimpiar.UseVisualStyleBackColor = true;
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
+            // btnMinimizar
+            // 
+            this.btnMinimizar.Enabled = false;
+            this.btnMinimizar.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMinimizar.Location = new System.Drawing.Point(35, 110);
+            this.btnMinimizar.Name = "btnMinimizar";
+            this.btnMinimizar.Size = new System.Drawing.Size(83, 46);
+            this.btnMinimizar.TabIndex = 10;
+            this.btnMinimizar.Text = "Minimizar Autómata";
+            this.btnMinimizar.UseVisualStyleBackColor = true;
+            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
+            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(541, 476);
+            this.ClientSize = new System.Drawing.Size(576, 476);
+            this.Controls.Add(this.btnMinimizar);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.sbPrincipal);
             this.Controls.Add(this.txtResultado);
@@ -209,6 +225,7 @@
         private System.Windows.Forms.StatusStrip sbPrincipal;
         private System.Windows.Forms.ToolStripStatusLabel slblTitulo;
         private System.Windows.Forms.Button btnLimpiar;
+        private System.Windows.Forms.Button btnMinimizar;
     }
 }
 
